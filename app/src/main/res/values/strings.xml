@@ -1,0 +1,32 @@
+<resources>
+    <string name="app_name">ShortcutsDemo</string>
+
+    <string name="settings_short_name">吹泡泡</string>
+    <string name="settings_long_name">吹五颜六色的泡泡</string>
+
+    <string name="settings_disable_msg">不可吹泡泡</string>
+
+    <string name="main_dialog_add">添加 Shortcuts</string>
+    <string name="main_dialog_delete">删除 Shortcuts</string>
+    <string name="main_dialog_manager">禁用 Shortcuts</string>
+    <string name="main_dialog_update">更新 Shortcuts</string>
+
+    <string-array name="dialog_choice_array">
+        <item>红泡泡</item>
+        <item>绿泡泡</item>
+        <item>蓝泡泡</item>
+        <item>紫泡泡</item>
+        <item>花泡泡</item>
+    </string-array>
+    <string name="main_dialog_single_choice">添加一种颜色的泡泡</string>
+
+    <string name="dialog_confirm">确定</string>
+    <string name="dialog_cancel">取消</string>
+    <string name="msg_format">这是一个%1$s</string>
+
+    <string name="shortcuts_size_is_max">不能添加更多的泡泡了，请先删除一个泡泡</string>
+    <string name="shortcuts_size_is_empty">没有泡泡，请先添加一个泡泡</string>
+    <string name="pinned_shortcuts_size_is_empty">没有固定泡泡，请先添加一个泡泡</string>
+    <string name="shortcuts_size_is_exist">已经有这个泡泡了</string>
+
+</resources>

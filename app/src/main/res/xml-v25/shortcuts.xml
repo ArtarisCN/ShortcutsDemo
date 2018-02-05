@@ -1,0 +1,16 @@
+<shortcuts xmlns:android="http://schemas.android.com/apk/res/android">
+    <shortcut
+        android:shortcutId="settings"
+        android:enabled="true"
+        android:icon="@mipmap/ic_dashboard_black_24dp"
+        android:shortcutShortLabel="@string/settings_short_name"
+        android:shortcutLongLabel="@string/settings_long_name"
+        android:shortcutDisabledMessage="@string/settings_disable_msg">
+
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:targetPackage="cn.artaris.shortcutsdemo"
+            android:targetClass="cn.artaris.shortcutsdemo.MainActivity" />
+        <categories android:name="android.shortcut.conversation"/>
+    </shortcut>
+</shortcuts>
