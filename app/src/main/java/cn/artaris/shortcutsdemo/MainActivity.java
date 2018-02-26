@@ -1,6 +1,5 @@
 package cn.artaris.shortcutsdemo;
 
-import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -21,6 +20,13 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+/**
+ * cn.artaris.shortcutsdemo
+ * ShortcutsDemo
+ * 2018.02.03.下午2:31
+ *
+ * @author : rick
+ */
 
 public class MainActivity extends AppCompatActivity {
 
@@ -31,8 +37,9 @@ public class MainActivity extends AppCompatActivity {
 
     private ShortcutManager mShortcutManager;
 
+    private int mMaxShortcutCount;
 
-    @TargetApi(Build.VERSION_CODES.N_MR1)
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,8 +57,27 @@ public class MainActivity extends AppCompatActivity {
         managerButton.setOnClickListener(mButtonOnClickListener);
         updateButton.setOnClickListener(mButtonOnClickListener);
 
-        mShortcutManager = getSystemService(ShortcutManager.class);
-
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N_MR1) {
+            /*
+            * 获取 ShortcutManager 管理 shortcuts
+            */
+            mShortcutManager = getSystemService(ShortcutManager.class);
+            /*
+            * 获取 ShortcutManager 支持的最多 shortcuts 个数
+            */
+            mMaxShortcutCount = mShortcutManager.getMaxShortcutCountPerActivity();
+        } else {
+            new AlertDialog.Builder(mContext)
+                    .setTitle(getString(R.string.main_dialog_simple_title))
+                    .setMessage(getString(R.string.main_dialog_simple_message))
+                    .setNeutralButton(getString(R.string.dialog_confirm), new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            finish();
+                        }
+                    })
+                    .show();
+        }
     }
 
 
@@ -67,7 +93,7 @@ public class MainActivity extends AppCompatActivity {
             switch (v.getId()){
                 case R.id.btn_dialog_1:
 
-                    if(shortcutInfos.size() > 4){
+                    if(shortcutInfos.size() > mMaxShortcutCount){
                         Toast.makeText(mContext, getString(R.string.shortcuts_size_is_max),Toast.LENGTH_LONG).show();
                         return;
                     }
@@ -264,7 +290,4 @@ public class MainActivity extends AppCompatActivity {
             }
         }
     };
-
-
-
 }

@@ -6,6 +6,9 @@
 
     <string name="settings_disable_msg">不可吹泡泡</string>
 
+    <string name="main_dialog_simple_title">提示</string>
+    <string name="main_dialog_simple_message">Shortcuts 仅支持 Android 7.1.1 以上系统，该机器暂不支持</string>
+
     <string name="main_dialog_add">添加 Shortcuts</string>
     <string name="main_dialog_delete">删除 Shortcuts</string>
     <string name="main_dialog_manager">禁用 Shortcuts</string>
